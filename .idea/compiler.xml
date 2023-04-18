@@ -6,14 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ws0418_ANN" />
         <module name="ws0418_XML" />
       </profile>
-      <profile name="Annotation profile for ws0418_ANN" enabled="true">
-        <sourceOutputDir name="../ws0420/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../ws0420/target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="ws0418_ANN" />
-      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ws0420" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
