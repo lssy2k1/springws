@@ -11,7 +11,7 @@
     <div class="container">
         <div class = "row-content">
             <div class="col-sm-6 text-left">
-                <h3>cust All page</h3>
+                <h3>Item All page</h3>
                 <table class="table table-hover">
                     <thead>
                     <tr>

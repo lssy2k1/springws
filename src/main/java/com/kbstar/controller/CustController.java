@@ -58,7 +58,12 @@ public class CustController {
     }
     @RequestMapping("/get")
     public String add(Model model, String id){
-        Cust cust = new Cust(id, "xxx", "jamesx");
+        Cust cust = null;
+        try {
+            cust = service.get(id);
+        } catch (Exception e) {
+            log.info("error get id");
+        }
         model.addAttribute("gcust", cust);
         model.addAttribute("left", dir + "left");
         model.addAttribute("center", dir + "get");
