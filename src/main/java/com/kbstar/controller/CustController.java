@@ -1,9 +1,12 @@
 package com.kbstar.controller;
 
 import com.kbstar.dto.Cust;
+import com.kbstar.frame.KBService;
+import com.kbstar.service.CustService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +19,9 @@ import java.util.Random;
 @Controller
 @RequestMapping("/cust")
 public class CustController {
+    @Autowired
+    CustService service;
+
     //Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
     String dir = "cust/";
     @RequestMapping("")
@@ -36,12 +42,15 @@ public class CustController {
     }
     @RequestMapping("/all")
     public String all(Model model){
-        List<Cust> list = new ArrayList<>();
-        list.add(new Cust("id01","pwd01","james1"));
-        list.add(new Cust("id02","pwd02","james2"));
-        list.add(new Cust("id03","pwd03","james3"));
-        list.add(new Cust("id04","pwd04","james4"));
-        list.add(new Cust("id05","pwd05","james5"));
+        List<Cust> list = null;
+        try {
+            list = service.get();
+        } catch (Exception e) {
+            log.info("에러발생");
+        }
+//        for(Cust obj:list){
+//            list.add(obj);
+//        }
         model.addAttribute("clist", list);
         model.addAttribute("left", dir + "left");
         model.addAttribute("center", dir + "all");
